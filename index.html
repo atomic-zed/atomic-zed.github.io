@@ -42,7 +42,6 @@
 			*/
 			addToHomescreen();
 		</script>
-		<script src="/js/banner.js"></script>
 	</head>
 	<body>
 		<nav>
@@ -65,8 +64,36 @@
         		<li><a href="https://github.com/atomic-zed">https://github.com/atomic-zed</a></li>
 			</ul>
 		</footer>
-		<div class="cookie-banner" id="cookie-banner" style="display: none"><p>
-			To add this web app to the home screen: tap %icon and then <strong>Add to Home Screen</strong>.
-		  </p></div>
+		<div class="wrapper">
+			<img src="#" alt="">
+			<div class="content">
+			  <header>Cookies Consent</header>
+			  <p>This website use cookies to ensure you get the best experience on our website.</p>
+			  <div class="buttons">
+				<button class="item">I understand</button>
+				<a href="#" class="item">Learn more</a>
+			  </div>
+			</div>
+		  </div>
+		
+		  <script>
+			const cookieBox = document.querySelector(".wrapper"),
+			acceptBtn = cookieBox.querySelector("button");
+		
+			acceptBtn.onclick = ()=>{
+			  //setting cookie for 1 month, after one month it'll be expired automatically
+			  document.cookie = "CookieBy=atomic-zed; max-age="+60*60*24*30;
+			  if(document.cookie){ //if cookie is set
+				cookieBox.classList.add("hide"); //hide cookie box
+			  }else{ //if cookie not set then alert an error
+				alert("Cookie can't be set! Please unblock this site from the cookie setting of your browser.");
+			  }
+			}
+			let checkCookie = document.cookie.indexOf("CookieBy=atomic-zed"); //checking our cookie
+			//if cookie is set then hide the cookie box else show it
+			checkCookie != -1 ? cookieBox.classList.add("hide") : cookieBox.classList.remove("hide");
+		  </script>
+		
+
 	</body>
 </html>
