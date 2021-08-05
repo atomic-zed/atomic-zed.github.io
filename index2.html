@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>First Form</title>
+    <title>Caregiver Info</title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/select2.css">
     <link rel="stylesheet" href="build/css/intlTelInput.css">
-
+    <link rel="stylesheet" href="css/bootstrap-datepicker3.css">
 </head>
 
 <body>
     <div class="container">
-        <h1>Parent Question</h1>
+        <h1>Caregiver Info</h1>
         <form class="col-md-7" action="">
             <div class="form-body">
                 <div class="form-group">
@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="form-group mt-2">
-                    <label class="col-md-3">Child's Age Range<span>*</span></label>
+                    <label class="col-md-7">Preferred Child's Age Range<span>*</span></label>
                     <div class="col-md-7 mt-1">
                         <select name="" class="form-select" id="">
                             <option value="" selected>---</option>
@@ -67,32 +67,11 @@
                     </div>
                 </div>
                 <div class="form-group mt-2">
-                    <label class="col-md-7">When you are looking for care to start?<span>*</span></label>
+                    <label class="col-md-7">When are you available to begin care?<span>*</span></label>
                     <div class="col-md-7 mt-1">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <input type="text" placeholder="DD" class="form-control" name="Date">
-                            </div>
-                            <div class="col-md-4">
-                                <select name="" id="" class="form-select">
-                                    <option value="">Jan</option>
-                                    <option value="">Feb</option>
-                                    <option value="">Mar</option>
-                                    <option value="">Apr</option>
-                                    <option value="">May</option>
-                                    <option value="">Jun</option>
-                                    <option value="">Jul</option>
-                                    <option value="">Aug</option>
-                                    <option value="">Sep</option>
-                                    <option value="">Oct</option>
-                                    <option value="">Nov</option>
-                                    <option value="">Dec</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="text" name="" class="form-control" placeholder="YYYY" id="">
-                            </div>
-                        </div>
+                        <input type="text" class="form-control" name=""  id="FromDate">
+                        <input type="text" class="form-control mt-2" name="" value="to" id="" disabled>
+                        <input type="text" class="form-control mt-2" name="" id="ToDate">
                     </div>
                 </div>
                 <div class="form-group mt-2">
@@ -127,11 +106,14 @@
     </div>
     <script src="js/jquery.js"></script>
     <script src="js/select2.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
     <script src="build/js/intlTelInput.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#days').select2();
             $('#Time').select2();
+            $('#FromDate').datepicker();
+            $('#ToDate').datepicker();
             var input = document.querySelector("#phone");
             window.intlTelInput(input, {
                 // allowDropdown: false,
